@@ -11,7 +11,15 @@ namespace HelloDojo
 			_person = person;
 		}
 
-		public string Name { get { return _person.Name; } }
+		public string Name 
+		{ 
+			get 
+			{
+				return string.IsNullOrWhiteSpace(_person.Name)
+					? "<no name>"
+					: _person.Name;
+			} 
+		}
 	}
 }
 

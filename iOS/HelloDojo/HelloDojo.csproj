@@ -122,6 +122,7 @@
     <Compile Include="Models\AddressBook.cs" />
     <Compile Include="ViewModels\AddressBookViewModel.cs" />
     <Compile Include="ViewModels\PersonHeaderViewModel.cs" />
+    <Compile Include="ViewModels\PersonSelection.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>

@@ -12,7 +12,8 @@ namespace HelloDojo
 	{
         private BindingManager _bindings = new BindingManager();
 
-		private AddressBookViewModel _viewModel = new AddressBookViewModel(new AddressBook());
+		private AddressBookViewModel _viewModel = 
+			new AddressBookViewModel(new AddressBook(), new PersonSelection());
 
 		static bool UserInterfaceIdiomIsPhone {
 			get { return UIDevice.CurrentDevice.UserInterfaceIdiom == UIUserInterfaceIdiom.Phone; }
@@ -43,13 +44,23 @@ namespace HelloDojo
 		{
 			base.ViewWillAppear (animated);
 
-			_bindings.BindItems (
+			_bindings.BindText(
+				textName,
+				() => _viewModel.NewName,
+				x => _viewModel.NewName = x);
+
+			_bindings.BindItems(
 				tablePeople,
 				() => _viewModel.People,
 				(view, person, bindings) => 
 				{
 					bindings.BindText(view.TextLabel, () => person.Name);
 				});
+
+			_bindings.BindCommand(
+				buttonAdd,
+				() => _viewModel.AddPerson(),
+				() => !string.IsNullOrWhiteSpace(_viewModel.NewName));
 		}
 
 		public override void ViewDidAppear (bool animated)
