@@ -16,37 +16,29 @@ namespace HelloDojo
 	{
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UIButton loginButton { get; set; }
+		UIButton buttonAdd { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UITextField passwordTextField { get; set; }
+		UITableView tablePeople { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UITextField userNameTextField { get; set; }
-
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		UILabel welcomeLabel { get; set; }
+		UITextField textName { get; set; }
 
 		void ReleaseDesignerOutlets ()
 		{
-			if (loginButton != null) {
-				loginButton.Dispose ();
-				loginButton = null;
+			if (buttonAdd != null) {
+				buttonAdd.Dispose ();
+				buttonAdd = null;
 			}
-			if (passwordTextField != null) {
-				passwordTextField.Dispose ();
-				passwordTextField = null;
+			if (tablePeople != null) {
+				tablePeople.Dispose ();
+				tablePeople = null;
 			}
-			if (userNameTextField != null) {
-				userNameTextField.Dispose ();
-				userNameTextField = null;
-			}
-			if (welcomeLabel != null) {
-				welcomeLabel.Dispose ();
-				welcomeLabel = null;
+			if (textName != null) {
+				textName.Dispose ();
+				textName = null;
 			}
 		}
 	}

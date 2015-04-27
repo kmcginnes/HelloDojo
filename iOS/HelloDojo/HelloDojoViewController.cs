@@ -12,7 +12,7 @@ namespace HelloDojo
 	{
         private BindingManager _bindings = new BindingManager();
 
-        private LoginViewModel _viewModel = new LoginViewModel(new UserLogin());
+		private AddressBookViewModel _viewModel = new AddressBookViewModel(new AddressBook());
 
 		static bool UserInterfaceIdiomIsPhone {
 			get { return UIDevice.CurrentDevice.UserInterfaceIdiom == UIUserInterfaceIdiom.Phone; }
@@ -43,17 +43,13 @@ namespace HelloDojo
 		{
 			base.ViewWillAppear (animated);
 
-            _bindings.BindText(userNameTextField,
-                () => _viewModel.UserName,
-                s => _viewModel.UserName = s);
-            _bindings.BindText(passwordTextField,
-                () => _viewModel.Password,
-                s => _viewModel.Password = s);
-            _bindings.BindCommand(loginButton,
-                () => _viewModel.Login(),
-                () => _viewModel.CanLogIn);
-            _bindings.BindText(welcomeLabel,
-                () => _viewModel.Welcome);
+			_bindings.BindItems (
+				tablePeople,
+				() => _viewModel.People,
+				(view, person, bindings) => 
+				{
+					bindings.BindText(view.TextLabel, () => person.Name);
+				});
 		}
 
 		public override void ViewDidAppear (bool animated)

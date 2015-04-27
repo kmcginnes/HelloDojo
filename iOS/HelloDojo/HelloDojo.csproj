@@ -118,8 +118,14 @@
     <Compile Include="HelloDojoViewController.designer.cs">
       <DependentUpon>HelloDojoViewController.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserLogin.cs" />
-    <Compile Include="LoginViewModel.cs" />
+    <Compile Include="Models\Person.cs" />
+    <Compile Include="Models\AddressBook.cs" />
+    <Compile Include="ViewModels\AddressBookViewModel.cs" />
+    <Compile Include="ViewModels\PersonHeaderViewModel.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
+  <ItemGroup>
+    <Folder Include="Models\" />
+    <Folder Include="ViewModels\" />
+  </ItemGroup>
 </Project>
